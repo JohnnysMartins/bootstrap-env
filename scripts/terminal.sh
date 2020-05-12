@@ -2,15 +2,15 @@
 
 echo "<> Installing and config terminal <>"
 
-# sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo add-apt-repository ppa:noobslab/deepin-sc
 
-# sudo add-apt-repository ppa:noobslab/deepin-sc
+sudo apt-get install -y deepin-terminal
 
-# sudo apt-get install -y deepin-terminal
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# cp -f $PWD/.files/.tmux.conf ~/.tmux.conf
+cp -f $PWD/.files/.tmux.conf ~/.tmux.conf
 
-# git clone git://github.com/wting/autojump.git
+git clone git://github.com/wting/autojump.git
 
 cd $PWD/autojump/ && ./install.py
 
