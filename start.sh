@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#----- START INSTALLATION -----#
+echo "#----- START INSTALLATION -----#"
 
 chmod -R +x $PWD/scripts
 
@@ -16,4 +16,4 @@ sh $PWD/scripts/terminal.sh
 # <> restart the terminal <> #
 sudo su $USER
 
-#----- FINISHED INSTALLATION -----#
+echo "#----- FINISHED INSTALLATION -----#"
