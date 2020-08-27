@@ -51,9 +51,14 @@ zsh_plugins_configuration() {
   read plugins_config
 
   if echo "$plugins_config" | grep -iq "^y"; then
+    # syntax highlight
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
     mv zsh-syntax-highlighting $HOME
     echo "source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+
+    # autosugestion
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
   fi
 }
 
