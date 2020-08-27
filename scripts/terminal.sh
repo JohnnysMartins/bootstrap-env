@@ -33,7 +33,6 @@ autojump_installation() {
     git clone git://github.com/wting/autojump.git
     cd $PWD/autojump/ && ./install.py
     echo "[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh" >>~/.zshrc
-    sudo su $USER
   fi
 
 }
@@ -47,6 +46,17 @@ ohmyzsh_installation() {
   fi
 }
 
+zsh_plugins_configuration() {
+  echo "<> Do you want to configure oh-my-zsh? (y/n)"
+  read plugins_config
+
+  if echo "$plugins_config" | grep -iq "^y"; then
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+    mv zsh-syntax-highlighting $HOME
+    echo "source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+  fi
+}
+
 echo "<> Do you want to configure a new terminal? (y/n)"
 read new_terminal
 
@@ -54,8 +64,9 @@ if echo "$new_terminal" | grep -iq "^y"; then
   echo "<> Installing and config terminal <>"
   deepin_terminal_installation
   tmux_installation
-  autojump_installation
   ohmyzsh_installation
+  zsh_plugins_configuration
+  autojump_installation
   echo "\n\n"
 
 else
